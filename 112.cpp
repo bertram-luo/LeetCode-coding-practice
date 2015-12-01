@@ -1,7 +1,8 @@
+// Subsets II
 #include <vector>
 #include <iostream>
 using namespace std;
-class SolutionRecursive {
+class Solution{
 	public:
 		vector<vector<int>> subsetsWithDup(vector<int>& nums) {
 			sort(nums.begin(), nums.end());
@@ -13,9 +14,9 @@ class SolutionRecursive {
 			}
 			return res;
 		}
-		void subsets(vector<vector<int>>&res, vector<int>&nums, vector<int>& instance, int s_pos, int des_pos){
-			for(int i = s_pos; i < nums.size(); ++i){
-				if (i == s_pos || nums[i] > nums[i-1]){
+		void subsets(vector<vector<int>>&res, vector<int>&nums, vector<int>& instance, int src_pos, int des_pos){
+			for(int i = src_pos; i < nums.size(); ++i){
+				if (i == src_pos || nums[i] > nums[i-1]){
 					instance[des_pos] = nums[i];
 					if (des_pos == instance.size() - 1){
 				            res.push_back(instance);
